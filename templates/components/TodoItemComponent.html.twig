@@ -1,0 +1,18 @@
+<div{{ attributes }} class="form-check form-switch">
+    {% set todoItemId = this.todoItem.id %}
+    {% set isDone = this.todoItem.isDone %}
+    <input class="form-check-input"
+           type="checkbox"
+           role="switch"
+           data-action="live#action"
+           data-action-name="toggleDone"
+           id="switch-{{ todoItemId }}" {{ isDone ? 'checked' }}>
+    <label class="form-check-label"
+           for="switch-{{ todoItemId}}">
+        {% if isDone %}
+            <del>{{ this.todoItem.name }}</del>
+        {% else %}
+            <strong>{{ this.todoItem.name }}</strong>
+        {% endif %}
+    </label>
+</div>
